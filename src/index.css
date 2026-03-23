@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+
+@theme {
+  --color-void: var(--void);
+  --color-surface: var(--surface);
+  --color-border-color: var(--border);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-muted: var(--gold-muted);
+  --color-gold-glow: var(--gold-glow);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-mono: "DM Mono", monospace;
+  --font-sans: "DM Mono", monospace;
+}
+
+:root {
+  --void: #000000;
+  --surface: #0a0a0a;
+  --border: #1a1a1a;
+  --gold-bright: #D4A853;
+  --gold-muted: #8a6a2e;
+  --gold-glow: rgba(212, 168, 83, 0.15);
+  --text-primary: #F5F0E8;
+  --text-muted: #5a5a5a;
+  --danger: #ff4444;
+  --success: #22c55e;
+}
+
+body {
+  background-color: var(--void);
+  color: var(--text-primary);
+  font-family: "DM Mono", monospace;
+  position: relative;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  z-index: 9999;
+  opacity: 0.8;
+  mix-blend-mode: overlay;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.shadow-gold-pulse {
+  animation: pulse-shadow 3s infinite;
+}
+
+@keyframes pulse-shadow {
+  0% { box-shadow: 0 0 0 0 var(--gold-glow); }
+  50% { box-shadow: 0 0 20px 5px var(--gold-glow); }
+  100% { box-shadow: 0 0 0 0 var(--gold-glow); }
+}
+
+html {
+  scroll-behavior: smooth;
+}

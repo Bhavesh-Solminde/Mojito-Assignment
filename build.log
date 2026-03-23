@@ -1,0 +1,33 @@
+
+> ledger@0.0.0 build
+> vite build
+
+[36mvite v6.4.1 [32mbuilding for production...[36m[39m
+transforming...
+Found 1 warning while optimizing generated CSS:
+
+Γöé   }
+Γöé }
+Γöé @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+Γöå        ^-- @import rules must precede all rules aside from @charset and @layer statements
+Γöå
+Γöé :root {
+Γöé   --void: #000000;
+
+[32mΓ£ô[39m 2548 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                            [39m[1m[2m  0.48 kB[22m[1m[22m[2m Γöé gzip:   0.31 kB[22m
+[2mdist/[22m[35massets/index-ClD3i-M1.css             [39m[1m[2m 24.87 kB[22m[1m[22m[2m Γöé gzip:   5.58 kB[22m
+[2mdist/[22m[36massets/formatCurrency-8ktB_ieJ.js     [39m[1m[2m  0.13 kB[22m[1m[22m[2m Γöé gzip:   0.14 kB[22m
+[2mdist/[22m[36massets/SummaryPanel-Q1i8IUNF.js       [39m[1m[2m  1.01 kB[22m[1m[22m[2m Γöé gzip:   0.57 kB[22m
+[2mdist/[22m[36massets/createLucideIcon-DvmXxpAf.js   [39m[1m[2m  1.55 kB[22m[1m[22m[2m Γöé gzip:   0.65 kB[22m
+[2mdist/[22m[36massets/ExpenseForm-CN14zJLC.js        [39m[1m[2m  2.19 kB[22m[1m[22m[2m Γöé gzip:   0.84 kB[22m
+[2mdist/[22m[36massets/categories-CnTGRt7Z.js         [39m[1m[2m  2.31 kB[22m[1m[22m[2m Γöé gzip:   0.85 kB[22m
+[2mdist/[22m[36massets/ExpenseList-BIkm5YlG.js        [39m[1m[2m  2.49 kB[22m[1m[22m[2m Γöé gzip:   1.21 kB[22m
+[2mdist/[22m[36massets/CurrencyConverter-BFXCeozB.js  [39m[1m[2m  2.54 kB[22m[1m[22m[2m Γöé gzip:   1.24 kB[22m
+[2mdist/[22m[36massets/index-BkJa9gKH.js              [39m[1m[2m  2.93 kB[22m[1m[22m[2m Γöé gzip:   1.42 kB[22m
+[2mdist/[22m[36massets/ScrollyCanvas-070ZuCAk.js      [39m[1m[2m 10.82 kB[22m[1m[22m[2m Γöé gzip:   4.42 kB[22m
+[2mdist/[22m[36massets/index-DyRNdCJf.js              [39m[1m[2m261.16 kB[22m[1m[22m[2m Γöé gzip:  85.25 kB[22m
+[2mdist/[22m[36massets/CategoryBreakdown-DUbddfDK.js  [39m[1m[2m372.46 kB[22m[1m[22m[2m Γöé gzip: 103.16 kB[22m
+[32mΓ£ô built in 5.86s[39m
