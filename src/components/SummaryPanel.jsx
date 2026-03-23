@@ -17,7 +17,7 @@ const SummaryPanel = React.memo(function SummaryPanel({ total }) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -40, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="absolute font-display text-5xl md:text-7xl text-gold-bright tracking-wider drop-shadow-md"
+            className="absolute font-display text-4xl sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-7xl text-gold-bright tracking-wider drop-shadow-md whitespace-nowrap"
           >
             {formattedTotal}
           </motion.div>
