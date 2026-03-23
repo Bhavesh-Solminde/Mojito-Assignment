@@ -94,7 +94,7 @@ export default function ScrollyCanvas() {
   }
 
   return (
-    <div ref={containerRef} className="relative w-full" style={{ height: '500vh' }}>
+    <div ref={containerRef} className="relative w-full" style={{ height: '700vh' }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-void">
         <canvas ref={canvasRef} className="w-full h-full" />
         

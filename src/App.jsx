@@ -1,12 +1,13 @@
 import React, { useState, useEffect, Suspense, lazy, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
-const ScrollyCanvas = lazy(() => import('./components/ScrollyCanvas'));
-const ExpenseForm = lazy(() => import('./components/ExpenseForm'));
-const ExpenseList = lazy(() => import('./components/ExpenseList'));
-const SummaryPanel = lazy(() => import('./components/SummaryPanel'));
+import ScrollyCanvas from './components/ScrollyCanvas';
+import ExpenseForm from './components/ExpenseForm';
+import ExpenseList from './components/ExpenseList';
+import SummaryPanel from './components/SummaryPanel';
+import CurrencyConverter from './components/CurrencyConverter';
+
 const CategoryBreakdown = lazy(() => import('./components/CategoryBreakdown'));
-const CurrencyConverter = lazy(() => import('./components/CurrencyConverter'));
 
 const INITIAL_STATE = [
   { id: '1', name: 'Private Jet Charter', amount: 14500.00, category: 'Travel', date: new Date().toISOString() },
@@ -52,9 +53,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-void text-text-primary selection:bg-gold-muted selection:text-void">
       
-      <Suspense fallback={<div className="h-screen bg-void flex items-center justify-center text-gold-muted font-mono tracking-widest">LOADING SCENE...</div>}>
-        <ScrollyCanvas />
-      </Suspense>
+      <ScrollyCanvas />
 
       <div className="relative z-50 bg-void -mt-1 pt-4 md:pt-20 pb-40">
         
@@ -84,7 +83,6 @@ export default function App() {
             </div>
           </motion.header>
 
-          <Suspense fallback={<div className="text-center text-text-muted py-20 font-mono">Loading modules...</div>}>
             <div className="grid grid-cols-1 lg:grid-cols-4 xl:grid-cols-5 gap-6 xl:gap-8 mb-12">
               
               <motion.div variants={itemVariants} className="lg:col-span-1 xl:col-span-2">
@@ -94,8 +92,10 @@ export default function App() {
               <motion.div variants={itemVariants} className="lg:col-span-3 xl:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-8">
                 <SummaryPanel total={totalAmount} />
                 <CurrencyConverter totalUSD={totalAmount} />
-                <div className="md:col-span-2">
-                  <CategoryBreakdown expenses={expenses} />
+                <div className="md:col-span-2 min-h-[300px]">
+                  <Suspense fallback={<div className="h-full w-full py-20 flex items-center justify-center text-text-muted font-mono animate-pulse border border-border bg-surface rounded">Loading Analytics...</div>}>
+                    <CategoryBreakdown expenses={expenses} />
+                  </Suspense>
                 </div>
               </motion.div>
             </div>
@@ -107,7 +107,6 @@ export default function App() {
               </div>
               <ExpenseList expenses={expenses} onDelete={deleteExpense} />
             </motion.div>
-          </Suspense>
 
         </motion.div>
       </div>
