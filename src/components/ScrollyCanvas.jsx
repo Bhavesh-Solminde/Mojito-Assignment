@@ -32,8 +32,9 @@ export default function ScrollyCanvas() {
     const drawFrame = (progressValue) => {
       const { canvas, ctx } = updateCanvas();
       
+      const normalizedProgress = Math.min(progressValue / 0.75, 1);
       const frameIndex = Math.min(
-        Math.floor(progressValue * TOTAL_FRAMES),
+        Math.floor(normalizedProgress * TOTAL_FRAMES),
         TOTAL_FRAMES - 1
       );
       
@@ -65,10 +66,10 @@ export default function ScrollyCanvas() {
     };
   }, [isLoaded, frames, scrollYProgress]);
 
-  const scene1Opacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
-  const scene2Opacity = useTransform(scrollYProgress, [0.25, 0.3, 0.5, 0.55], [0, 1, 1, 0]);
-  const scene3Opacity = useTransform(scrollYProgress, [0.55, 0.6, 0.8, 0.85], [0, 1, 1, 0]);
-  const scene4Opacity = useTransform(scrollYProgress, [0.85, 0.95], [0, 1]);
+  const scene1Opacity = useTransform(scrollYProgress, [0, 0.15, 0.20], [1, 1, 0]);
+  const scene2Opacity = useTransform(scrollYProgress, [0.20, 0.25, 0.40, 0.45], [0, 1, 1, 0]);
+  const scene3Opacity = useTransform(scrollYProgress, [0.45, 0.50, 0.65, 0.70], [0, 1, 1, 0]);
+  const scene4Opacity = useTransform(scrollYProgress, [0.70, 0.75], [0, 1]);
 
   const scrollToApp = () => {
     window.scrollTo({
@@ -94,7 +95,7 @@ export default function ScrollyCanvas() {
   }
 
   return (
-    <div ref={containerRef} className="relative w-full" style={{ height: '700vh' }}>
+    <div ref={containerRef} className="relative w-full" style={{ height: '600vh' }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-void">
         <canvas ref={canvasRef} className="w-full h-full" />
         
